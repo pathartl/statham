@@ -3,8 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Statham</title>
+
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script src="js/controllers.js"></script>
 	</head>
-	<body>
+	<body ng-app="statham" ng-controller="StathamMainCtrl">
 		
+		<header>
+			<h1>{{ site.info.name }}</h1>
+		</header>
+
 	</body>
 </html>
