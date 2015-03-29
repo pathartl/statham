@@ -1,0 +1,21 @@
+{
+  "name": "statham",
+  "version": "1.0.0",
+  "homepage": "https://github.com/pathartl/statham",
+  "authors": [
+    "Pat Hartl <pat@pathar.tl>"
+  ],
+  "description": "An Angular based theme for WordPress using the WP REST API",
+  "moduleType": [
+    "node"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
