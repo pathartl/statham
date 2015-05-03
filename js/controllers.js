@@ -27,7 +27,7 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
     }
 
     $scope.scrollToTop = function() {
-    	$("html, body").animate({ scrollTop: 0 }, "slow");
+    	$("html, body").css({ scrollTop: 0 });
     }
 
 });
@@ -43,7 +43,7 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 
 	var args = {
 		'posts_per_page': -1,
-		'more_tag': true
+		'more_tag': false
 	}
 
 	wordpress.getPosts('posts', args);

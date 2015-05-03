@@ -10,18 +10,27 @@
 		<script src="bower_components/angular-route/angular-route.min.js"></script>
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/jquery-unveil/jquery.unveil.min.js"></script>
 
 		<script src="js/controllers.js"></script>
 		<script src="js/services.js"></script>
 		<script src="js/filters.js"></script>
 		<script src="js/routing.js"></script>
+		<script src="js/directives.js"></script>
+
+		<style>
+			img {
+				opacity: 0;
+				transition: opacity 0.5s ease-in;
+			}
+		</style>
 	</head>
 	<body ng-app="statham" ng-controller="StathamMainCtrl">
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="#/">
 						{{ site.info.name }}
 					</a>
 				</div>

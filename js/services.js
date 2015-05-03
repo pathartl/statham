@@ -36,7 +36,6 @@ statham.factory('wordpress', function($http, $rootScope) {
 					// Grab comments and add them to scope if we make an arg for it
 					$http.jsonp( site_url + '/wp-json/posts/' + post.ID + '/comments?_jsonp=JSON_CALLBACK' ).success(function(comments) {
 						$rootScope.comments = $rootScope.comments.concat(comments);
-						console.log($rootScope.comments);
 					});
 
 				}
@@ -51,6 +50,15 @@ statham.factory('wordpress', function($http, $rootScope) {
 
 				}
 
+				var images = post.content.match(/((?:src)=["']?(?:(?:.(?!["']?\s+(?:\S+)=|[>"']))+.)(?:jpg|png|gif|svg)["'])/g);
+
+				if ( images ) {
+					images.forEach(function(image, i) {
+						var lazyImage = 'data-src' + image.substring(3);
+						post.content = post.content.replace(image, lazyImage);
+					});
+				}
+
 			});
 
 			$rootScope.posts = data;
@@ -58,6 +66,5 @@ statham.factory('wordpress', function($http, $rootScope) {
 		});
 
 	};
-
   	return wordpress;
 });
