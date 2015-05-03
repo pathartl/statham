@@ -15,15 +15,17 @@ statham.controller('StathamMainCtrl', function($scope, $http) {
 
 });
 
-statham.controller('StathamHomeCtrl', function($scope, $http, wordpress) {
+statham.controller('StathamHomeCtrl', function($scope, wordpress) {
 
 	wordpress.getPosts('posts');
 
 });
 
-statham.controller('StathamSingleCtrl', function($scope, $http, $routeParams) {
+statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress) {
 
 	$scope.slug = $routeParams.slug;
+
+	wordpress.getPosts( 'posts?filter[name]=' + $routeParams.slug );
 
 	// http.jsonp('http://pathar.tl/wp-json/posts?filter[name]=' + $routeParams.slug + '&_jsonp=JSON_CALLBACK').
 	//  	success(function(data, status) {
