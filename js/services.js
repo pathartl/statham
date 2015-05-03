@@ -18,12 +18,29 @@ statham.factory('wordpress', function($http, $rootScope) {
 			argKeys = Object.keys(args);
 
 			argKeys.forEach(function(key, i) {
-				filters += '&filter[' + key + ']=' + args[key];
+
+				if (key != 'comments') {
+					filters += '&filter[' + key + ']=' + args[key];
+				}
 			});
 		}
 
 		$http.jsonp( site_url + '/wp-json/' + route + callback + filters ).success(function(data) {
 			$rootScope.posts = data;
+
+			if ( args.comments == true ) {
+
+				$rootScope.comments = [];
+
+				data.forEach(function(post, i) {
+
+					$http.jsonp( site_url + '/wp-json/posts/' + post.ID + '/comments?_jsonp=JSON_CALLBACK' ).success(function(comments) {
+						$rootScope.comments = $rootScope.comments.concat(comments);
+						console.log($rootScope.comments);
+					});
+
+				});
+			}
 		});
 
 	};

@@ -53,7 +53,8 @@ statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress
 	// Should be the standard whenever I want to run some queries
 	var args = {
 		'name': $routeParams.slug,
-		'posts_per_page': -1
+		'posts_per_page': 1,
+		'comments': true
 	}
 
 	wordpress.getPosts( 'posts', args );
@@ -61,5 +62,10 @@ statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress
 });
 
 statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
+
+});
+
+statham.controller('StathamCommentsCtrl', function($scope, wordpress) {
+
 
 });
