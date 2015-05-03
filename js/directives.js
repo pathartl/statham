@@ -1,4 +1,4 @@
-statham.directive('lazyLoad', function ($http) {
+statham.directive('lazyLoad', function () {
     return {
         // Restrict it to be an attribute in this case.
         restrict: 'A',

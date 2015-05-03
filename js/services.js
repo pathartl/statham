@@ -50,14 +50,22 @@ statham.factory('wordpress', function($http, $rootScope) {
 
 				}
 
-				var images = post.content.match(/((?:src)=["']?(?:(?:.(?!["']?\s+(?:\S+)=|[>"']))+.)(?:jpg|png|gif|svg)["'])/g);
+				// Change the src of our images to data-src for lazy loading
 
-				if ( images ) {
-					images.forEach(function(image, i) {
-						var lazyImage = 'data-src' + image.substring(3);
-						post.content = post.content.replace(image, lazyImage);
-					});
-				}
+				var contentHtml = $(post.content);
+
+				contentHtml.find('img').each(function(i, img) {
+					img = $(img);
+					img.attr('data-src', img.attr('src')).removeAttr('src');
+				});
+
+				post.content = '';
+
+				contentHtml.each(function(i, el) {
+					if ( el.outerHTML ) {
+						post.content += el.outerHTML
+					}
+				});
 
 			});
 
