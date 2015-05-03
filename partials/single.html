@@ -1,6 +1,6 @@
-<section ng-cloak lazy-load>
+<section ng-cloak>
 	<h2>{{ post.title }}</h2>
-	<article ng-repeat="post in posts" ng-bind-html="post.content | rawHtml"></article>
+	<article lazy-load ng-repeat="post in posts" ng-bind-html="post.content | rawHtml"></article>
 
 	<aside>
 		<div ng-repeat="comment in comments" class="comment">
