@@ -1,4 +1,4 @@
-statham.config(function($routeProvider) {
+statham.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when(
 			"/",
@@ -26,4 +26,6 @@ statham.config(function($routeProvider) {
 				redirectTo: "/"
 			}
 		);
+
+	$locationProvider.html5Mode(true);
 });

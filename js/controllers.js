@@ -5,7 +5,7 @@ var http = {};
 var site_url = 'https://pathar.tl';
 
 // Main control, mostly for init
-statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
+statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $location) {
 
 	$scope.site = {};
 
@@ -29,6 +29,10 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
     $scope.scrollToTop = function() {
     	$("html, body").css({ scrollTop: 0 });
     }
+
+    $scope.go = function ( path ) {
+	  $location.path( path );
+	};
 
 });
 

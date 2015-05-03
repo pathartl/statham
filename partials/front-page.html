@@ -15,18 +15,18 @@
 	<ul class="pagination">
 
 	    <li ng-if="currentPage > 0">
-			<a href="#/page/{{ currentPage }}" ng-click="scrollToTop()" aria-label="Previous">
+			<a href="#" ng-click="go('/page/' + currentPage); scrollToTop()" aria-label="Previous">
 				<span aria-hidden="true">&laquo;</span>
 			</a>
 	    </li>
 
 		<li ng-repeat="i in numberOfPages() track by $index" ng-class="{active: $index == currentPage}">
-			<a ng-if="$index != 0" href="#/page/{{ $index + 1 }}" ng-click="scrollToTop()">{{ $index + 1 }}</a>
-			<a ng-if="$index == 0" href="#/" ng-click="scrollToTop()">1</a>
+			<a ng-if="$index != 0" href="#" ng-click="go( '/page/' + ($index + 1) ); scrollToTop()">{{ $index + 1 }}</a>
+			<a ng-if="$index == 0" href="#" ng-click="go('/'); scrollToTop()">1</a>
 		</li>
 
 	    <li ng-if="currentPage + 1 < numberOfPages().length">
-			<a href="#/page/{{ currentPage + 2 }}" ng-click="scrollToTop()" aria-label="Next">
+			<a href="#" ng-click="go('/page/' + (currentPage + 2) ); scrollToTop()" aria-label="Next">
 				<span aria-hidden="true">&raquo;</span>
 			</a>
 	    </li>
