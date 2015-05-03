@@ -4,6 +4,7 @@ var http = {};
 
 var site_url = 'https://pathar.tl';
 
+// Main control, mostly for init
 statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
 
 	$scope.site = {};
@@ -31,6 +32,7 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
 
 });
 
+// Front page controller
 statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) {
 
 	if ( $routeParams.page > 0 ) {
@@ -43,6 +45,7 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 
 });
 
+// Single post controller
 statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress) {
 
 	$scope.slug = $routeParams.slug;
@@ -60,80 +63,3 @@ statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress
 statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
 
 });
-
-statham.filter('rawHtml', ['$sce', function($sce){
-	return function(val) {
-		return $sce.trustAsHtml(val);
-	};
-}]);
-
-statham.filter('startFrom', function() {
-    return function(input, start) {
-        start = +start; //parse to int
-        if (input) {
-        	return input.slice(start);
-    	}
-    }
-});
-
-statham.factory('wordpress', function($http, $rootScope) {
-
-	var wordpress = {};
-	wordpress.getPosts = function(route, args) {
-
-		var callback;
-
-		if (route.indexOf('?') >= 0) {
-			callback = '&_jsonp=JSON_CALLBACK';
-		} else {
-			callback = '?_jsonp=JSON_CALLBACK';
-		}
-
-		var filters = '';
-
-		if (args) {
-			argKeys = Object.keys(args);
-
-			argKeys.forEach(function(key, i) {
-				filters += '&filter[' + key + ']=' + args[key];
-			});
-		}
-
-		$http.jsonp( site_url + '/wp-json/' + route + callback + filters ).success(function(data) {
-			$rootScope.posts = data;
-		});
-
-	};
-
-  	return wordpress;
-});
-
-statham.config(function($routeProvider) {
-		$routeProvider
-			.when(
-				"/",
-					{
-						templateUrl: 'partials/front-page.html',
-						controller: 'StathamHomeCtrl'
-					}
-			)
-			.when(
-				"/page/:page",
-					{
-						templateUrl: 'partials/front-page.html',
-						controller: 'StathamHomeCtrl'
-					}
-			)
-			.when(
-				"/posts/:slug",
-					{
-						templateUrl: 'partials/single.html',
-						controller: 'StathamSingleCtrl'
-					}
-			)
-			.otherwise(
-				{
-					redirectTo: "/"
-				}
-			);
-	});
