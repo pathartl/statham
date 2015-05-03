@@ -1,6 +1,8 @@
 var statham = angular.module('statham', ['ngRoute']);
 
-var $html = {};
+var http = {};
+
+var site_url = 'https://pathar.tl';
 
 statham.controller('StathamMainCtrl', function($scope, $http) {
 
@@ -11,16 +13,11 @@ statham.controller('StathamMainCtrl', function($scope, $http) {
 			$scope.site.info = data;
 		});
 
-	http = $http;
-
 });
 
-statham.controller('StathamHomeCtrl', function($scope, $http) {
+statham.controller('StathamHomeCtrl', function($scope, $http, wordpress) {
 
-	http.jsonp('http://pathar.tl/wp-json/posts?_jsonp=JSON_CALLBACK').
-		success(function(data, status) {
-			$scope.posts = data;
-		});
+	wordpress.getPosts('posts');
 
 });
 
@@ -28,10 +25,14 @@ statham.controller('StathamSingleCtrl', function($scope, $http, $routeParams) {
 
 	$scope.slug = $routeParams.slug;
 
-	http.jsonp('http://pathar.tl/wp-json/posts?filter[name]=' + $routeParams.slug + '&_jsonp=JSON_CALLBACK').
-	 	success(function(data, status) {
-	 		$scope.post = data[0];
-	 	});
+	// http.jsonp('http://pathar.tl/wp-json/posts?filter[name]=' + $routeParams.slug + '&_jsonp=JSON_CALLBACK').
+	//  	success(function(data, status) {
+	//  		$scope.post = data[0];
+	//  	});
+
+});
+
+statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
 
 });
 
@@ -40,6 +41,28 @@ statham.filter('rawHtml', ['$sce', function($sce){
 		return $sce.trustAsHtml(val);
 	};
 }]);
+
+statham.factory('wordpress', function($http, $rootScope) {
+
+	var wordpress = {};
+	wordpress.getPosts = function(route) {
+
+		var callback;
+
+		if (route.indexOf('?') >= 0) {
+			callback = '&_jsonp=JSON_CALLBACK';
+		} else {
+			callback = '?_jsonp=JSON_CALLBACK';
+		}
+
+		$http.jsonp( site_url + '/wp-json/' + route + callback ).success(function(data) {
+			$rootScope.posts = data;
+		});
+
+	};
+
+  	return wordpress;
+});
 
 statham.config(function($routeProvider) {
 		$routeProvider
@@ -63,11 +86,3 @@ statham.config(function($routeProvider) {
 				}
 			);
 	});
-
-function getPosts($scope, url) {
-	
-	http.jsonp(url).success(function(data, status) {
-		return data;
-	});
-
-}

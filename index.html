@@ -15,9 +15,13 @@
 		
 		<header>
 			<h1>{{ site.info.name }}</h1>
+
+			<nav>
+				<li ng-repeat="menu in menus"></li>
+			</nav>
 		</header>
 
-		<div ng-view></div>
+		<main ng-view></main>
 
 	</body>
 </html>
