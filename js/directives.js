@@ -4,9 +4,10 @@ statham.directive('lazyLoad', function () {
         restrict: 'A',
         link: function ($scope, element, attrs) {
             $scope.$watch('posts', function() {
-                $('img').unveil(200, function() {
+                $('img').unveil(0, function() {
                   $(this).load(function() {
                     this.style.opacity = 1;
+                    this.style.top = 0;
                   });
                 });
             });
