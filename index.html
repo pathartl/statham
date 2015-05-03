@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>Statham</title>
 
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
 		<script src="bower_components/angular/angular.min.js"></script>
 		<script src="bower_components/angular-route/angular-route.min.js"></script>
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -12,16 +14,27 @@
 		<script src="js/controllers.js"></script>
 	</head>
 	<body ng-app="statham" ng-controller="StathamMainCtrl">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						{{ site.info.name }}
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<main ng-view class="col-md-10 col-md-offset-1"></main>
+		</div>
 		
 		<header>
-			<h1>{{ site.info.name }}</h1>
 
 			<nav>
 				<li ng-repeat="menu in menus"></li>
 			</nav>
 		</header>
-
-		<main ng-view></main>
 
 	</body>
 </html>
