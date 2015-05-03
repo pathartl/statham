@@ -41,7 +41,12 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 		$scope.currentPage = 0;
 	}
 
-	wordpress.getPosts('posts', {'posts_per_page': -1});
+	var args = {
+		'posts_per_page': -1,
+		'more_tag': true
+	}
+
+	wordpress.getPosts('posts', args);
 
 });
 
