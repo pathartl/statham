@@ -10,10 +10,14 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams) {
 
 	$scope.postsPerPage = 3;
     
-	$http.get('https://pathar.tl/wp-json').
-		success(function(data, status) {
-			$scope.site.info = data;
-		});
+	// $http.get('https://pathar.tl/wp-json').
+	// 	success(function(data, status) {
+	// 		$scope.site.info = data;
+	// 	});
+
+	$http.jsonp( site_url + '/wp-json/?_jsonp=JSON_CALLBACK' ).success(function(data) {
+		$scope.site.info = data;
+	});
 
     $scope.numberOfPages = function() {
     	if ( $scope.posts ) {
