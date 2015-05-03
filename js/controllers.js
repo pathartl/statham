@@ -39,7 +39,7 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 		$scope.currentPage = 0;
 	}
 
-	wordpress.getPosts('posts');
+	wordpress.getPosts('posts', {'posts_per_page': -1});
 
 });
 
@@ -47,7 +47,13 @@ statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress
 
 	$scope.slug = $routeParams.slug;
 
-	wordpress.getPosts( 'posts?filter[name]=' + $routeParams.slug );
+	// Should be the standard whenever I want to run some queries
+	var args = {
+		'name': $routeParams.slug,
+		'posts_per_page': -1
+	}
+
+	wordpress.getPosts( 'posts', args );
 
 });
 
@@ -73,7 +79,7 @@ statham.filter('startFrom', function() {
 statham.factory('wordpress', function($http, $rootScope) {
 
 	var wordpress = {};
-	wordpress.getPosts = function(route) {
+	wordpress.getPosts = function(route, args) {
 
 		var callback;
 
@@ -83,7 +89,17 @@ statham.factory('wordpress', function($http, $rootScope) {
 			callback = '?_jsonp=JSON_CALLBACK';
 		}
 
-		$http.jsonp( site_url + '/wp-json/' + route + callback + '&filter[posts_per_page]=-1' ).success(function(data) {
+		var filters = '';
+
+		if (args) {
+			argKeys = Object.keys(args);
+
+			argKeys.forEach(function(key, i) {
+				filters += '&filter[' + key + ']=' + args[key];
+			});
+		}
+
+		$http.jsonp( site_url + '/wp-json/' + route + callback + filters ).success(function(data) {
 			$rootScope.posts = data;
 		});
 
