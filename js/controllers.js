@@ -31,6 +31,8 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 
 	if ( $routeParams.page > 0 ) {
 		$scope.currentPage = $routeParams.page - 1;
+	} else {
+		$scope.currentPage = 0;
 	}
 
 	wordpress.getPosts('posts');
