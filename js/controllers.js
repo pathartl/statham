@@ -63,15 +63,13 @@ statham.controller('StathamSearchCtrl', function($scope, wordpress, $routeParams
 		$scope.currentPage = 0;
 	}
 
-	$scope.search = function() {
-		var args = {
-			'posts_per_page': -1,
-			'more_tag': true,
-			's': $scope.search.query
-		}
-
-		wordpress.getPosts('posts', args);
+	var args = {
+		'posts_per_page': -1,
+		'more_tag': true,
+		's': $routeParams.query
 	}
+
+	wordpress.getPosts('posts', args);
 
 });
 

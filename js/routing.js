@@ -21,6 +21,13 @@ statham.config(function($routeProvider, $locationProvider) {
 					controller: 'StathamSingleCtrl'
 				}
 		)
+		.when(
+			"/search/:query",
+				{
+					templateUrl: 'partials/archive.html',
+					controller: 'StathamSearchCtrl'
+				}
+		)
 		.otherwise(
 			{
 				redirectTo: "/"
