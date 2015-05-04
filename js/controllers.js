@@ -47,10 +47,31 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 
 	var args = {
 		'posts_per_page': -1,
-		'more_tag': false
+		'more_tag': true
 	}
 
 	wordpress.getPosts('posts', args);
+
+});
+
+// Search controller
+statham.controller('StathamSearchCtrl', function($scope, wordpress, $routeParams) {
+
+	if ( $routeParams.page > 0 ) {
+		$scope.currentPage = $routeParams.page - 1;
+	} else {
+		$scope.currentPage = 0;
+	}
+
+	$scope.search = function() {
+		var args = {
+			'posts_per_page': -1,
+			'more_tag': true,
+			's': $scope.search.query
+		}
+
+		wordpress.getPosts('posts', args);
+	}
 
 });
 

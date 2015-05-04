@@ -32,6 +32,12 @@
 						{{ site.info.name }}
 					</a>
 				</div>
+				<form class="navbar-form navbar-right" role="search" ng-controller="StathamSearchCtrl" ng-submit="search()">
+					<div class="form-group">
+						<input type="text" class="form-control" ng-model="search.query" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-zoom-in"></i></button>
+				</form>
 			</div>
 		</nav>
 
