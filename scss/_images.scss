@@ -1,6 +1,9 @@
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 img[data-src] {
 	opacity: 0;
 	transition: all 0.5s;
-	position: relative;
-	top: 100px;
 }

@@ -7,7 +7,6 @@ statham.directive('lazyLoad', function () {
                 $('img').unveil(0, function() {
                   $(this).load(function() {
                     this.style.opacity = 1;
-                    this.style.top = 0;
                   });
                 });
             });
