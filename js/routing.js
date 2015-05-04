@@ -3,14 +3,14 @@ statham.config(function($routeProvider, $locationProvider) {
 		.when(
 			"/",
 				{
-					templateUrl: 'partials/front-page.html',
+					templateUrl: 'partials/archive.html',
 					controller: 'StathamHomeCtrl'
 				}
 		)
 		.when(
 			"/page/:page",
 				{
-					templateUrl: 'partials/front-page.html',
+					templateUrl: 'partials/archive.html',
 					controller: 'StathamHomeCtrl'
 				}
 		)
