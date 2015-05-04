@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Statham</title>
 
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -37,12 +39,7 @@
 			<main ng-cloak ng-view class="col-md-10 col-md-offset-1"></main>
 		</div>
 		
-		<header>
-
-			<nav>
-				<li ng-repeat="menu in menus"></li>
-			</nav>
-		</header>
+		<footer ng-include="'partials/footer.html'"></footer>
 
 	</body>
 </html>
