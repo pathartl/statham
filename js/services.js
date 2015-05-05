@@ -2,6 +2,7 @@
 statham.factory('wordpress', function($http, $rootScope) {
 
 	var wordpress = {};
+
 	wordpress.getPosts = function(route, args) {
 
 		var callback;

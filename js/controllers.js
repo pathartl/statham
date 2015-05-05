@@ -8,6 +8,7 @@ var site_url = 'https://pathar.tl';
 statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $location) {
 
 	$scope.site = {};
+	$scope.menu = {};
 
 	$scope.postsPerPage = 3;
     
@@ -90,6 +91,38 @@ statham.controller('StathamSingleCtrl', function($scope, $routeParams, wordpress
 });
 
 statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
+
+	$http.jsonp( site_url + '/wp-json/menus/59?_jsonp=JSON_CALLBACK' ).success(function(data) {
+		$scope.menu.primary = data.items;
+
+		$scope.menu.primary.forEach(function(item, i) {
+			if (item.parent != 0) {
+
+				var parent = $('.menu-item-' + item.parent);
+
+				if (!parent.hasClass('dropdown')) {
+					parent.addClass('dropdown');
+				}
+
+				if (parent.children('ul').length === 0) {
+
+					var parentTitle = parent.children('a').text();
+
+					parent.children('a').remove();
+
+					parent.append('<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' + parentTitle + ' <span class="caret"></span></a>');
+					parent.append('<ul class="dropdown-menu" role="menu"></ul>');
+				}
+				
+				parent.children('ul').append('<li class="menu-item-' + item.ID + '"><a href="' + item.url + '">' + item.title + '</a></li>');
+				
+			} else {
+				$('header ul.nav').append('<li class="menu-item-' + item.ID + '"><a href="' + item.url + '">' + item.title + '</a></li>');
+			}
+		});
+	});
+
+
 
 });
 
