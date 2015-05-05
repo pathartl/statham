@@ -7,3 +7,53 @@ img[data-src] {
 	opacity: 0;
 	transition: all 0.5s;
 }
+
+.img-loader {
+	position: relative;
+	display: inline-block;
+}
+
+.img-loader > a {
+
+	&::before,
+	&::after {
+		transition: 0.5s all;
+	}
+
+	&::before {
+		content: '';
+		background: rgba(0,0,0,0.4);
+		opacity: 0;
+	}
+
+	&:hover::before {
+		opacity: 1;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		content: '';
+	}
+	
+	&::after {
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		content: "\f065";
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		color: #fff;
+		font-size: 22px;
+		transform: scale(0);
+	}
+
+	&:hover::after {
+		content: "\f065";
+	    animation-name: pop-in;
+	    animation-duration: 1s;
+	    animation-fill-mode: forwards;
+	}
+
+}
