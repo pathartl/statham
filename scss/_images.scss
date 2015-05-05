@@ -18,12 +18,12 @@ img[data-src] {
 	&::before,
 	&::after {
 		transition: 0.5s all;
+		opacity: 0;
 	}
 
 	&::before {
 		content: '';
 		background: rgba(0,0,0,0.4);
-		opacity: 0;
 	}
 
 	&:hover::before {
@@ -37,6 +37,7 @@ img[data-src] {
 	}
 	
 	&::after {
+		opacity: 1;
 		display: inline-block;
 		font: normal normal normal 14px/1 FontAwesome;
 		font-size: inherit;
