@@ -1,6 +1,19 @@
+@import 'fonts';
 @import 'colors';
 @import 'animations';
 
+@import 'typography';
 @import 'images';
 
 @import 'buttons';
+@import 'nav';
+@import 'panels';
+@import 'jumbotron';
+
+body {
+	background: $primary;
+}
+
+.navbar-text {
+	display: none;
+}

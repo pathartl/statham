@@ -1,24 +1,42 @@
-.btn-default {
+.btn-default,
+.label-default,
+.progress-bar-default,
+.panel-default .panel-heading {
 	background: $default;
 }
 
-.btn-primary {
+.btn-primary,
+.label-primary,
+.progress-bar,
+.panel-primary .panel-heading {
 	background: $primary;
 }
 
-.btn-success {
+.btn-success,
+.label-success,
+.progress-bar-success,
+.panel-success .panel-heading {
 	background: $success;
 }
 
-.btn-info {
+.btn-info,
+.label-info,
+.progress-bar-info,
+.panel-info .panel-heading {
 	background: $info;
 }
 
-.btn-warning {
+.btn-warning,
+.label-warning,
+.progress-bar-warning,
+.panel-warning .panel-heading {
 	background: $warning;
 }
 
-.btn-danger {
+.btn-danger,
+.label-danger,
+.progress-bar-danger,
+.panel-danger .panel-heading {
 	background: $danger;
 }
 
@@ -26,3 +44,9 @@
 	border: none;
 }
 
+.btn,
+.btn-lg,
+.btn-sm,
+.btn-xs {
+	border-radius: 0;
+}
