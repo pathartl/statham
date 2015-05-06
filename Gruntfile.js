@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			all: {
-				files: 'scss/style.scss',
+				files: 'scss/*.scss',
 				tasks: ['sass', 'autoprefixer'],
 				options: {
 					debounceDelay: 250,
