@@ -1,0 +1,65 @@
+.form-control {
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+	border-bottom: 3px solid #eee;
+	background: #f9f9f9;
+	font-weight: normal;
+}
+
+.has-success .form-control:focus,
+.has-error .form-control:focus,
+.has-warning .form-control:focus,
+.has-warning .form-control,
+.form-control:focus {
+	outline: none;
+	outline-style: none;
+	box-shadow: none;
+	border-color: $warning;
+}
+
+.form-control:focus {
+	border-color: $info;
+}
+
+.has-success .form-control,
+.has-success .form-control:focus {
+	border-color: $success;
+}
+
+.has-error .form-control,
+.has-error .form-control:focus {
+	border-color: $danger;
+}
+
+.input-group .form-control {
+	border-bottom: 4px solid #eee;
+	height: 35px;
+}
+
+.input-group-addon {
+	border-radius: 0;
+	border: none;
+	border-bottom: 3px solid rgba(0,0,0,0.1);
+}
+
+input[type="checkbox"] {
+	opacity: 0;
+
+	& + label::before {
+		content: '';
+		width: 30px;
+		height: 30px;
+		background: #f9f9f9;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+		border-bottom: 3px solid rgba(0,0,0,0.1);
+		font-family: 'Glyphicons Halflings';
+	}
+
+	&:checked + label::before {
+		content: "\e013";
+		color: $primary;
+	}
+}

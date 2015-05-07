@@ -1,6 +1,12 @@
 body {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: thin; }
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+[user-agent*="Windows NT"] .panel-body {
+  font-weight: 300; }
+
+.panel-body {
+  font-size: 22px;
+  font-weight: 100; }
 
 @-webkit-keyframes pop-in {
   0% {
@@ -311,8 +317,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 100;
+  font-weight: 300;
   color: #068191; }
+
+[user-agent*="Windows NT"] h1,
+[user-agent*="Windows NT"] h2,
+[user-agent*="Windows NT"] h3,
+[user-agent*="Windows NT"] h4,
+[user-agent*="Windows NT"] h5,
+[user-agent*="Windows NT"] h6 {
+  font-weight: 500; }
 
 img {
   max-width: 100%;
@@ -397,16 +411,101 @@ img[data-src] {
 .label-danger,
 .progress-bar-danger,
 .panel-danger .panel-heading {
-  background: #DE414C; }
+  background: #ED5672; }
 
 .btn {
-  border: none; }
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 6px; }
+  .btn:active {
+    position: relative;
+    top: 1px; }
+  .btn:focus {
+    outline: none; }
+
+.btn-lg,
+.btn-group-lg > .btn {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 7px; }
+  .btn-lg:active,
+  .btn-group-lg > .btn:active {
+    border-bottom-width: 3px; }
+
+.btn-sm,
+.btn-group-sm > .btn {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 2px; }
+  .btn-sm:active,
+  .btn-group-sm > .btn:active {
+    border-bottom-width: 2px; }
+
+.btn-xs,
+.btn-group-xs > .btn {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0px; }
+  .btn-xs:active,
+  .btn-group-xs > .btn:active {
+    border-bottom-width: 1px; }
 
 .btn,
 .btn-lg,
 .btn-sm,
 .btn-xs {
   border-radius: 0; }
+
+.form-control {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  border-bottom: 3px solid #eee;
+  background: #f9f9f9;
+  font-weight: normal; }
+
+.has-success .form-control:focus,
+.has-error .form-control:focus,
+.has-warning .form-control:focus,
+.has-warning .form-control,
+.form-control:focus {
+  outline: none;
+  outline-style: none;
+  box-shadow: none;
+  border-color: #FFCF3F; }
+
+.form-control:focus {
+  border-color: #7BEBDF; }
+
+.has-success .form-control,
+.has-success .form-control:focus {
+  border-color: #81E027; }
+
+.has-error .form-control,
+.has-error .form-control:focus {
+  border-color: #ED5672; }
+
+.input-group .form-control {
+  border-bottom: 4px solid #eee;
+  height: 35px; }
+
+.input-group-addon {
+  border-radius: 0;
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1); }
+
+input[type="checkbox"] {
+  opacity: 0; }
+  input[type="checkbox"] + label::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: #f9f9f9;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+    font-family: 'Glyphicons Halflings'; }
+  input[type="checkbox"]:checked + label::before {
+    content: "\e013";
+    color: #09BED6; }
 
 .navbar-default {
   background-color: #04515c;
@@ -460,14 +559,15 @@ img[data-src] {
   border-radius: 0; }
 
 .panel {
-  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.75); }
+  box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.75);
+  border: none; }
 
 .panel-heading,
 .panel {
   border-radius: 0; }
 
 .panel-default {
-  border-color: #F2F2F2; }
+  padding: 48px 60px; }
 
 .panel-primary {
   border-color: #09BED6; }
@@ -482,7 +582,7 @@ img[data-src] {
   border-color: #FFCF3F; }
 
 .panel-danger {
-  border-color: #DE414C; }
+  border-color: #ED5672; }
 
 .panel-default .panel-heading {
   background: #F2F2F2;
@@ -505,14 +605,51 @@ img[data-src] {
   color: #967000; }
 
 .panel-danger .panel-heading {
-  background: #DE414C;
-  color: #651217; }
+  background: #ED5672;
+  color: #8c0f26; }
 
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 0;
   background: #fff;
   box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.75); }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Inconsolata, Consolas, Lucida Console, monospace;
+  font-weight: normal !important;
+  padding: 10px !important;
+  font-size: 16px; }
+
+pre {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  border: none; }
+
+.hljs {
+  background-color: #04515c;
+  color: #fff; }
+
+.hljs-built_in {
+  color: #09BED6; }
+
+.hljs-operator {
+  color: #fff; }
+
+.hljs-keyword {
+  color: #ED5672; }
+
+.hljs-string {
+  color: #FFCF3F; }
+
+.bash .hljs-variable {
+  color: #FFCF3F; }
+
+.hljs-shebang {
+  color: #067d8d; }
 
 body {
   background: #09BED6; }

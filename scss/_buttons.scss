@@ -44,24 +44,45 @@
 	border: none;
 	border-bottom: 3px solid rgba(0,0,0,0.1);
 	padding-bottom: 6px;
+
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .btn-lg,
 .btn-group-lg > .btn {
 	border-bottom: 4px solid rgba(0,0,0,0.1);
 	padding-bottom: 7px;
+
+	&:active {
+		border-bottom-width: 3px;
+	}
 }
 
 .btn-sm,
 .btn-group-sm > .btn {
 	border-bottom: 3px solid rgba(0,0,0,0.1);
 	padding-bottom: 2px;
+
+	&:active {
+		border-bottom-width: 2px;
+	}
 }
 
 .btn-xs,
 .btn-group-xs > .btn {
 	border-bottom: 2px solid rgba(0,0,0,0.1);
 	padding-bottom: 0px;
+
+	&:active {
+		border-bottom-width: 1px;
+	}
 }
 
 .btn,
