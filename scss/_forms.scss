@@ -56,10 +56,15 @@ input[type="checkbox"] {
 		text-align: center;
 		border-bottom: 3px solid rgba(0,0,0,0.1);
 		font-family: 'Glyphicons Halflings';
+		padding-top: 14px;
+		font-size: 1px;
+		transition: 0.1s all;
 	}
 
 	&:checked + label::before {
 		content: "\e013";
-		color: $primary;
+		color: $success;
+		font-size: 19px;
+		padding-top: 0;
 	}
 }

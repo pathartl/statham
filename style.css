@@ -502,10 +502,15 @@ input[type="checkbox"] {
     vertical-align: middle;
     text-align: center;
     border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-    font-family: 'Glyphicons Halflings'; }
+    font-family: 'Glyphicons Halflings';
+    padding-top: 14px;
+    font-size: 1px;
+    transition: 0.1s all; }
   input[type="checkbox"]:checked + label::before {
     content: "\e013";
-    color: #09BED6; }
+    color: #81E027;
+    font-size: 19px;
+    padding-top: 0; }
 
 .navbar-default {
   background-color: #04515c;
