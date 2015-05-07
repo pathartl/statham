@@ -6,9 +6,11 @@
 	</div>
 	<ul class="nav navbar-nav" ng-controller="StathamPrimaryNavCtrl"></ul>
 	<form class="navbar-form navbar-right" role="search" ng-controller="StathamSearchCtrl" ng-submit="go('/search/' + searchQuery)">
-		<div class="form-group">
+		<div class="input-group">
 			<input type="text" class="form-control" ng-model="searchQuery" placeholder="Search">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+			</span>
 		</div>
-		<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 	</form>
 </div>
