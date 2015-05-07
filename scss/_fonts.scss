@@ -1,4 +1,12 @@
 body {
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: thin;
+}
+
+[user-agent*="Windows NT"] .panel-body {
+	font-weight: 300;
+}
+
+.panel-body {
+	font-size: 22px;
+	font-weight: 100;
 }
