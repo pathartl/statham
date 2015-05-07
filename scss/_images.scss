@@ -10,10 +10,16 @@ img[data-src] {
 
 .img-loader {
 	position: relative;
-	display: inline-block;
+	display: block;
+
+	&.aligncenter {
+		text-align: center;
+	}
 }
 
 .img-loader > a {
+	position: relative;
+	display: inline-block;
 
 	&::before,
 	&::after {
