@@ -42,6 +42,26 @@
 
 .btn {
 	border: none;
+	border-bottom: 3px solid rgba(0,0,0,0.1);
+	padding-bottom: 6px;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+	border-bottom: 4px solid rgba(0,0,0,0.1);
+	padding-bottom: 7px;
+}
+
+.btn-sm,
+.btn-group-sm > .btn {
+	border-bottom: 3px solid rgba(0,0,0,0.1);
+	padding-bottom: 2px;
+}
+
+.btn-xs,
+.btn-group-xs > .btn {
+	border-bottom: 2px solid rgba(0,0,0,0.1);
+	padding-bottom: 0px;
 }
 
 .btn,
