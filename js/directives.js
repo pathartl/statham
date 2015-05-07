@@ -9,6 +9,11 @@ statham.directive('lazyLoad', function () {
                     this.style.opacity = 1;
                   });
                 });
+
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+                
             });
         }
     }

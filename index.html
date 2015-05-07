@@ -9,7 +9,12 @@
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+
 		<link rel="stylesheet" href="style.css">
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 
 		<script src="bower_components/angular/angular.min.js"></script>
 		<script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -22,6 +27,12 @@
 		<script src="js/filters.js"></script>
 		<script src="js/routing.js"></script>
 		<script src="js/directives.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('body').attr('user-agent', window.navigator.appVersion);
+			});
+		</script>
 
 		<base href="/">
 	</head>

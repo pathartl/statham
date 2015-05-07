@@ -1,0 +1,50 @@
+// For highlighting and code blocks
+
+code,
+kbd,
+pre,
+samp {
+	font-family: Inconsolata, Consolas, Lucida Console, monospace;
+	font-weight: normal !important;
+	padding: 10px !important;
+	font-size: 16px;
+}
+
+pre {
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	border: none;
+}
+
+code {
+}
+
+.hljs {
+	background-color: darken($primary, 25%);
+	color: #fff;
+}
+
+.hljs-built_in {
+	color: $primary;
+}
+
+.hljs-operator {
+	color: #fff;
+}
+
+.hljs-keyword {
+	color: $danger;
+}
+
+.hljs-string {
+	color: $warning;
+}
+
+.bash .hljs-variable {
+	color: $warning;
+}
+
+.hljs-shebang {
+	color: darken($primary, 15%);
+}
