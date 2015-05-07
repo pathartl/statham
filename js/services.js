@@ -58,7 +58,7 @@ statham.factory('wordpress', function($http, $rootScope) {
 				contentHtml.find('img').each(function(i, img) {
 					img = $(img);
 					img.attr('data-src', img.attr('src')).removeAttr('src');
-					img.wrap('<div class="img-loader"></div>')
+					img.wrap('<div class="img-loader ' + img.attr('class') + '"></div>');
 				});
 
 				post.content = '';

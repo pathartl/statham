@@ -4,14 +4,14 @@ statham.config(function($routeProvider, $locationProvider) {
 			"/",
 				{
 					templateUrl: 'partials/archive.html',
-					controller: 'StathamHomeCtrl'
+					controller: 'StathamArchiveCtrl'
 				}
 		)
 		.when(
 			"/page/:page",
 				{
 					templateUrl: 'partials/archive.html',
-					controller: 'StathamHomeCtrl'
+					controller: 'StathamArchiveCtrl'
 				}
 		)
 		.when(
@@ -26,6 +26,13 @@ statham.config(function($routeProvider, $locationProvider) {
 				{
 					templateUrl: 'partials/archive.html',
 					controller: 'StathamSearchCtrl'
+				}
+		)
+		.when(
+			"/category/:category",
+				{
+					templateUrl: 'partials/archive.html',
+					controller: 'StathamArchiveCtrl'
 				}
 		)
 		.otherwise(

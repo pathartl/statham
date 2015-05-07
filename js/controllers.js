@@ -55,6 +55,28 @@ statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) 
 
 });
 
+// Archive controller
+statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams) {
+
+	if ( $routeParams.page > 0 ) {
+		$scope.currentPage = $routeParams.page - 1;
+	} else {
+		$scope.currentPage = 0;
+	}
+
+	var args = {
+		'posts_per_page': -1,
+		'more_tag': true
+	}
+
+	if ( $routeParams.category ) {
+		args['category_name'] = $routeParams.category;
+	}
+
+	wordpress.getPosts('posts', args);
+
+});
+
 // Search controller
 statham.controller('StathamSearchCtrl', function($scope, wordpress, $routeParams) {
 
@@ -121,8 +143,6 @@ statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
 			}
 		});
 	});
-
-
 
 });
 
