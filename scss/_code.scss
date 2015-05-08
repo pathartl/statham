@@ -17,7 +17,9 @@ pre {
 	border: none;
 }
 
-code {
+p > code {
+	margin: 10px 0;
+	display: inline-block;
 }
 
 .hljs {
