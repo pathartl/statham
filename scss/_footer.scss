@@ -1,0 +1,19 @@
+footer {
+	background-color: darken($primary, 25%);
+	padding: 20px;
+	color: #fff;
+
+	a {
+		color: $info;
+
+		&:hover {
+			color: $info-alt;
+			text-decoration: none;
+		}
+	}
+}
+
+
+.footer-copyright {
+	margin-bottom: 0;
+}
