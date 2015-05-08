@@ -45,6 +45,11 @@
 
 input[type="checkbox"] {
 	opacity: 0;
+	user-select: none;
+
+	& + label {
+		user-select: none;
+	}
 
 	& + label::before {
 		content: '';
