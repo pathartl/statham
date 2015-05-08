@@ -37,24 +37,6 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $loc
 
 });
 
-// Front page controller
-statham.controller('StathamHomeCtrl', function($scope, wordpress, $routeParams) {
-
-	if ( $routeParams.page > 0 ) {
-		$scope.currentPage = $routeParams.page - 1;
-	} else {
-		$scope.currentPage = 0;
-	}
-
-	var args = {
-		'posts_per_page': -1,
-		'more_tag': true
-	}
-
-	wordpress.getPosts('posts', args);
-
-});
-
 // Archive controller
 statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams) {
 
@@ -118,6 +100,10 @@ statham.controller('StathamPrimaryNavCtrl', function($scope, $http) {
 		$scope.menu.primary = data.items;
 
 		$scope.menu.primary.forEach(function(item, i) {
+			if (item.type == 'taxonomy') {
+				item.url = '/' + item.object + '/' + item.title.toLowerCase();
+			}
+
 			if (item.parent != 0) {
 
 				var parent = $('.menu-item-' + item.parent);
