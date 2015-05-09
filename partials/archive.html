@@ -1,4 +1,4 @@
-<div ng-repeat="post in posts | startFrom: currentPage * postsPerPage | limitTo: postsPerPage" class="panel panel-default panel-padded">
+<div lazy-load ng-repeat="post in posts | startFrom: currentPage * postsPerPage | limitTo: postsPerPage" class="panel panel-default panel-padded">
 	<section id="{{ post.slug }}" class="panel-body">
 		<h1>
 			<a href="/#/posts/{{ post.slug }}">

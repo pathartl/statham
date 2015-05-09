@@ -25,3 +25,27 @@ statham.directive('lazyLoad', function () {
         }
     }
 });
+
+statham.animation('.slide-out', [function() {
+    return {
+        // make note that other events (like addClass/removeClass)
+        // have different function input parameters
+        enter: function(element, doneFn) {
+            $(element).hide();
+            doneFn();
+
+        // remember to call doneFn so that angular
+        // knows that the animation has concluded
+        },
+
+        move: function(element, doneFn) {
+            jQuery(element).fadeIn(100, doneFn);
+        },
+
+        leave: function(element, doneFn) {
+            jQuery(element).fadeOut(400, function() {
+                doneFn();
+            });
+        }
+    }
+}]);
