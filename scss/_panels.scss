@@ -70,3 +70,11 @@
 	background: $danger;
 	color: darken($danger, 33%);
 }
+
+@media screen and (max-width: $screen-sm-max) {
+
+	.panel-padded {
+		padding: 0px;
+	}
+
+}

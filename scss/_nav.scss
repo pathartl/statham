@@ -111,3 +111,31 @@
 	}
 
 }
+
+@media screen and (max-width: $screen-xs-max) {
+
+	.navbar-nav {
+		margin-bottom: 0;
+	}
+	
+	.navbar-brand {
+		padding: 15px;
+	}
+
+	.navbar-default .navbar-collapse,
+	.navbar-default .navbar-form {
+		border: none;
+		background: darken($primary, 35%);
+		box-shadow: none;
+		margin: 0 -15px;
+		padding-bottom: 10px;
+	}
+
+	.navbar-header > button {
+		position: relative;
+		float: right;
+		margin-right: 15px;
+		margin-top: 7px;
+	}
+
+}

@@ -3,14 +3,21 @@
 		<a class="navbar-brand" href="#" ng-click="go('/')">
 			{{ site.info.name }}
 		</a>
+
+		<button type="button" class="btn btn-info hidden-md hidden-lg collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <i class="fa fa-bars"></i>
+      	</button>
 	</div>
-	<ul class="nav navbar-nav" ng-controller="StathamPrimaryNavCtrl"></ul>
-	<form class="navbar-form navbar-right" role="search" ng-controller="StathamSearchCtrl" ng-submit="go('/search/' + searchQuery)">
-		<div class="input-group">
-			<input type="text" class="form-control" ng-model="searchQuery" placeholder="Search">
-			<span class="input-group-btn">
-				<button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-			</span>
-		</div>
-	</form>
+	<div class="collapse navbar-collapse" id="navbar-collapse">
+		<ul class="nav navbar-nav" ng-controller="StathamPrimaryNavCtrl"></ul>
+		<form class="navbar-form navbar-right" role="search" ng-controller="StathamSearchCtrl" ng-submit="go('/search/' + searchQuery)">
+			<div class="input-group">
+				<input type="text" class="form-control" ng-model="searchQuery" placeholder="Search">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+				</span>
+			</div>
+		</form>
+	</div>
 </div>

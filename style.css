@@ -331,6 +331,13 @@ h6 {
 p {
   margin: 0 0 20px; }
 
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 22px;
+    margin-top: 10px; }
+
+  .panel-body {
+    font-size: 16px; } }
 img {
   max-width: 100%;
   height: auto; }
@@ -597,18 +604,29 @@ input[type="checkbox"] {
 .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span {
   border-radius: 0; }
 
+@media screen and (max-width: 767px) {
+  .navbar-nav {
+    margin-bottom: 0; }
+
+  .navbar-brand {
+    padding: 15px; }
+
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+    background: #02262b;
+    box-shadow: none;
+    margin: 0 -15px;
+    padding-bottom: 10px; }
+
+  .navbar-header > button {
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    margin-top: 7px; } }
 .panel {
   box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.75);
-  border: none;
-  transition: 1s all; }
-  .panel.ng-enter {
-    -webkit-transform: translateX(-100vw);
-        -ms-transform: translateX(-100vw);
-            transform: translateX(-100vw); }
-  .panel.ng-move {
-    -webkit-transform: translateY(100vw);
-        -ms-transform: translateY(100vw);
-            transform: translateY(100vw); }
+  border: none; }
 
 .panel-heading,
 .panel {
@@ -656,6 +674,9 @@ input[type="checkbox"] {
   background: #ED5672;
   color: #8c0f26; }
 
+@media screen and (max-width: 991px) {
+  .panel-padded {
+    padding: 0px; } }
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 0;
