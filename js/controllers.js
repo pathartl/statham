@@ -38,7 +38,7 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $loc
 });
 
 // Archive controller
-statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams, animator, $location) {
+statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams, $location) {
 
 	var args = {
 		'posts_per_page': -1,
