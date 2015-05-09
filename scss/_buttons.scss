@@ -44,10 +44,12 @@
 	border: none;
 	border-bottom: 3px solid rgba(0,0,0,0.1);
 	padding-bottom: 6px;
+	outline: none !important;
 
 	&:active {
 		position: relative;
 		top: 1px;
+		border-bottom-width: 2px;
 	}
 
 	&:focus {

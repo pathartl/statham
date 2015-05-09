@@ -1,4 +1,4 @@
-<div lazy-load ng-cloak ng-repeat="post in posts | startFrom: currentPage * postsPerPage | limitTo: postsPerPage" class="panel panel-default">
+<div ng-repeat="post in posts | startFrom: currentPage * postsPerPage | limitTo: postsPerPage" class="panel panel-default panel-padded">
 	<section id="{{ post.slug }}" class="panel-body">
 		<h1>
 			<a href="/#/posts/{{ post.slug }}">
@@ -9,4 +9,4 @@
 	</section>
 </div>
 
-<nav ng-include="'partials/pagination.html'"></nav>
+<nav ng-include="'/partials/pagination.html'"></nav>

@@ -6,27 +6,31 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Statham</title>
 
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
 
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/style.css">
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 
-		<script src="bower_components/angular/angular.min.js"></script>
-		<script src="bower_components/angular-route/angular-route.min.js"></script>
-		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="bower_components/jquery-unveil/jquery.unveil.min.js"></script>
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angular-route/angular-route.min.js"></script>
+		<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
 
-		<script src="js/controllers.js"></script>
-		<script src="js/services.js"></script>
-		<script src="js/filters.js"></script>
-		<script src="js/routing.js"></script>
-		<script src="js/directives.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script src="/bower_components/jquery-unveil/jquery.unveil.min.js"></script>
+		<script src="/bower_components/velocity/velocity.min.js"></script>
+
+		<script src="/js/controllers.js"></script>
+		<script src="/js/services.js"></script>
+		<script src="/js/filters.js"></script>
+		<script src="/js/routing.js"></script>
+		<script src="/js/directives.js"></script>
 
 		<script>
 			$(document).ready(function() {
@@ -38,15 +42,15 @@
 	</head>
 	<body ng-app="statham" ng-controller="StathamMainCtrl">
 
-		<header class="navbar navbar-default navbar-static-top" ng-include="'partials/header.html'"></header>
+		<header class="navbar navbar-default navbar-static-top" ng-include="'/partials/header.html'"></header>
 
 		<main class="">
-			<div ng-cloak ng-view class="container"></div>
+			<div ng-view class="container"></div>
 		</main>
 		
-		<footer ng-include="'partials/footer.html'"></footer>
+		<footer ng-include="'/partials/footer.html'"></footer>
 
-		<div ng-include="'partials/lightbox.html'"></div>
+		<div ng-include="'/partials/lightbox.html'"></div>
 
 	</body>
 </html>

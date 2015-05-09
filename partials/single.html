@@ -1,4 +1,4 @@
-<section ng-cloak ng-repeat="post in posts" class="panel panel-default">
+<section ng-repeat="post in posts" class="panel panel-default panel-padded">
 	<div class="panel-body">
 		<h1>{{ post.title }}</h1>
 		<article lazy-load ng-bind-html="post.content | rawHtml"></article>

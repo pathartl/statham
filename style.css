@@ -424,10 +424,12 @@ img[data-src] {
 .btn {
   border: none;
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 6px; }
+  padding-bottom: 6px;
+  outline: none !important; }
   .btn:active {
     position: relative;
-    top: 1px; }
+    top: 1px;
+    border-bottom-width: 2px; }
   .btn:focus {
     outline: none; }
 
@@ -491,7 +493,7 @@ img[data-src] {
   border-color: #ED5672; }
 
 .input-group .form-control {
-  border-bottom: 4px solid #eee;
+  border-bottom: 3px solid #eee;
   height: 35px; }
 
 .input-group-addon {
@@ -597,13 +599,22 @@ input[type="checkbox"] {
 
 .panel {
   box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.75);
-  border: none; }
+  border: none;
+  transition: 1s all; }
+  .panel.ng-enter {
+    -webkit-transform: translateX(-100vw);
+        -ms-transform: translateX(-100vw);
+            transform: translateX(-100vw); }
+  .panel.ng-move {
+    -webkit-transform: translateY(100vw);
+        -ms-transform: translateY(100vw);
+            transform: translateY(100vw); }
 
 .panel-heading,
 .panel {
   border-radius: 0; }
 
-.panel-default {
+.panel-padded {
   padding: 48px 60px; }
 
 .panel-primary {

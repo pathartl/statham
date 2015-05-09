@@ -1,4 +1,4 @@
-var statham = angular.module('statham', ['ngRoute']);
+var statham = angular.module('statham', ['ngRoute', 'ngAnimate']);
 
 var http = {};
 
@@ -38,13 +38,7 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $loc
 });
 
 // Archive controller
-statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams) {
-
-	if ( $routeParams.page > 0 ) {
-		$scope.currentPage = $routeParams.page - 1;
-	} else {
-		$scope.currentPage = 0;
-	}
+statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParams, animator, $location) {
 
 	var args = {
 		'posts_per_page': -1,
@@ -56,6 +50,14 @@ statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParam
 	}
 
 	wordpress.getPosts('posts', args);
+
+
+	if ( $routeParams.page > 0 ) {
+		$scope.currentPage = $routeParams.page - 1;
+	} else {
+		$scope.currentPage = 0;
+	}
+
 
 });
 
