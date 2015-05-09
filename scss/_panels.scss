@@ -12,6 +12,19 @@
 
 }
 
+// .slide-out {
+// 	transition: 30s all;
+
+// 	&.ng-leave {
+// 		opacity: 0;
+// 	}
+
+// 	&.ng-enter {
+// 		transform: translateX(-100vw);
+// 		display: none;
+// 	}
+// }
+
 .panel-heading,
 .panel {
 	border-radius: 0;

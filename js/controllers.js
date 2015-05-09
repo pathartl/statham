@@ -49,6 +49,11 @@ statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParam
 		args['category_name'] = $routeParams.category;
 	}
 
+    $scope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {
+    	//event.preventDefault();
+		$scope.posts = [];
+    });
+
 	wordpress.getPosts('posts', args);
 
 
@@ -57,6 +62,13 @@ statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParam
 	} else {
 		$scope.currentPage = 0;
 	}
+
+
+    $scope.$watch('posts', function() {
+
+        $('.slide-out').fadeIn();
+
+    });
 
 
 });
