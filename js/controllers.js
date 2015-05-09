@@ -35,6 +35,12 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $loc
 	  $location.path( path );
 	};
 
+    $scope.$watch('posts', function() {
+
+        $('.slide-out').fadeIn();
+
+    });
+
 });
 
 // Archive controller
@@ -62,14 +68,6 @@ statham.controller('StathamArchiveCtrl', function($scope, wordpress, $routeParam
 	} else {
 		$scope.currentPage = 0;
 	}
-
-
-    $scope.$watch('posts', function() {
-
-        $('.slide-out').fadeIn();
-
-    });
-
 
 });
 
