@@ -43,8 +43,20 @@ statham.animation('.slide-out', [function() {
         },
 
         leave: function(element, doneFn) {
-            jQuery(element).fadeOut(400, function() {
-                doneFn();
+            var panels = $(element).find('.panel');
+            panels.each(function(i, panel) {
+                $(panel).velocity({
+                    translateX: '100vw',
+                    opacity: 0
+                }, {
+                    delay: 100 * i,
+                    easing: 'easeOutSine',
+                    complete: function() {
+                        if (i == (panels.length - 1)) {
+                            doneFn();
+                        }
+                    }
+                })
             });
         }
     }

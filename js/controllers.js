@@ -5,7 +5,7 @@ var http = {};
 var site_url = 'https://pathar.tl';
 
 // Main control, mostly for init
-statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $location) {
+statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $location, $timeout) {
 
 	$scope.site = {};
 	$scope.menu = {};
@@ -37,7 +37,29 @@ statham.controller('StathamMainCtrl', function($scope, $http, $routeParams, $loc
 
     $scope.$watch('posts', function() {
 
-        $('.slide-out').fadeIn();
+    	$timeout(function () {
+
+    		var view = $('.slide-out');
+    		var panels = view.find('.panel');
+
+    		panels.css({
+    			transform: 'translateX(0)',
+    			opacity: 0
+    		});
+
+    		view.show();
+
+        	panels.each(function(i, panel) {
+                $(panel).velocity({
+                    translateX: '0',
+                    opacity: 1
+                }, {
+                    delay: 100 * i,
+                    easing: 'easeOutSine'
+                });
+            });
+
+        });
 
     });
 
